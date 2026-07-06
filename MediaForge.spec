@@ -14,7 +14,7 @@ a = Analysis(
     datas=[
         ('src/mediaforge/constants.py', 'mediaforge'),
         ('src/mediaforge', 'mediaforge'),
-    ],
+    ] + ([('icon.ico', '.')] if Path('icon.ico').exists() else []),
     hiddenimports=[
         'PySide6',
         'PySide6.QtCore',

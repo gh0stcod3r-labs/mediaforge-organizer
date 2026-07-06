@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (
     QFrame, QListWidget, QListWidgetItem, QToolButton, QSizePolicy
 )
 from PySide6.QtCore import Qt, QThread, Signal
-from PySide6.QtGui import QFont, QColor
+from PySide6.QtGui import QFont, QColor, QIcon
 from .models import MediaType, VideoFile
 from .scanner import VideoScanner, SUPPORTED_EXTENSIONS
 from .parser import VideoParser
@@ -49,6 +49,16 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
+
+
+def _get_icon_path():
+    """Resolve icon.ico both when running from source and when frozen by
+    PyInstaller (bundled via datas, extracted under sys._MEIPASS)."""
+    if hasattr(sys, "_MEIPASS"):
+        candidate = Path(sys._MEIPASS) / "icon.ico"
+    else:
+        candidate = Path(__file__).resolve().parent.parent.parent / "icon.ico"
+    return candidate if candidate.exists() else None
 
 
 class DropFileListWidget(QListWidget):
@@ -101,7 +111,10 @@ class MediaForgeApp(QMainWindow):
         logger.info("Entry point: src.main -> ModernMediaForgeWindow")
         logger.info("Active window class: %s", self.__class__.__name__)
         self.setWindowTitle("MediaForge Organizer")
-        
+        icon_path = _get_icon_path()
+        if icon_path:
+            self.setWindowIcon(QIcon(str(icon_path)))
+
         # Load settings first (will restore window geometry, theme, etc.)
         self.settings = get_settings()
         logger.info("Settings loaded")
