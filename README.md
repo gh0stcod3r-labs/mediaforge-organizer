@@ -5,6 +5,18 @@ A local-first desktop app for renaming and organizing video files (TV shows, ani
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
+[![Latest Release](https://img.shields.io/github/v/release/gh0stcod3r-labs/mediaforge-organizer)](https://github.com/gh0stcod3r-labs/mediaforge-organizer/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/gh0stcod3r-labs/mediaforge-organizer/total)](https://github.com/gh0stcod3r-labs/mediaforge-organizer/releases)
+
+## Screenshots
+
+**Input files, one-click settings, and the organized output (new filename + destination folder) side by side:**
+
+![Main window](docs/screenshots/main_window.png)
+
+**Everything else — provider, category, copy/move, dry-run — lives behind the single gear icon:**
+
+![Settings dialog](docs/screenshots/settings_dialog.png)
 
 ## Features
 
@@ -28,7 +40,7 @@ Destination/Movie Title/Movie Title - 2010.ext
 ### Run from source
 
 ```
-git clone https://github.com/<your-org>/mediaforge-organizer.git
+git clone https://github.com/gh0stcod3r-labs/mediaforge-organizer.git
 cd mediaforge-organizer
 pip install -r requirements.txt
 python src/main.py
