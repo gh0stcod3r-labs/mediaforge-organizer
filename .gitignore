@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+
+# PyInstaller build artifacts (exe is published via GitHub Releases, not committed)
+build/
+dist/
+
+# Test/tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# App runtime data (settings, cache, logs) - user-machine specific
+.mediaforge/
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+venv/
+.venv/
+env/
